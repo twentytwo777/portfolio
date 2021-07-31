@@ -124,6 +124,7 @@ button.active.focus, button.active:focus, button.focus, button:active.focus, but
     background-image: url(../img/additional/ye3.png);
     background-repeat: no-repeat;
     padding-bottom: 150px;
+    background-size: cover;
 }
 .product {
     font-weight: 600;
