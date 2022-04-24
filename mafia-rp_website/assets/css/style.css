@@ -33,6 +33,7 @@ img {user-select: none;}
     display: none;
     cursor: pointer;
     transition: .3s;
+    pointer-events: all !important;
 }
 .navbar__toggle:hover {opacity: 0.6;}
 .bros_tog, .bros_tog2, .bros_tog3 {
@@ -43,6 +44,7 @@ img {user-select: none;}
     transition: .3s;
     border-radius: 2px;
     transition: .3s;
+    pointer-events: none !important;
 }
 .navbar_ml {
     list-style: none;

@@ -1,34 +1,16 @@
-const d = document;
+const navbar = document.querySelector('.navbar'),
+    navbar__toggle = document.querySelector('.navbar__toggle'),
+    navbar_ml = document.querySelector('.navbar_ml'),
+    secondlogo = document.querySelector('.logo_hide_pc');
 
-var navbar__toggle = d.querySelector('.navbar__toggle');
-var navbar_ml = d.querySelector('.navbar_ml');
-var secondlogo = d.querySelector('.logo_hide_pc');
-
-navbar__toggle.addEventListener('click', function(){
+navbar__toggle.onclick = _ => {
     navbar_ml.classList.toggle('active');
     secondlogo.classList.add('activef');
-});
+};
 
-$(document).mouseup(function (e){
-    var div = $(".navbar_ml, .navbar__toggle");
-    if (!div.is(e.target) 
-        && div.has(e.target).length === 0) { 
-        $('.navbar_ml').removeClass('active');
-    }
-});
- 
-var navbar = d.querySelector('.navbar');
-window.onscroll = function() {
-    const wn = window.scrollY;
-    if (wn >= 1) {
-        navbar.classList.add('active_scroll');
-    }else {
-        navbar.classList.remove('active_scroll');
-    }
-}
+document.onclick = e => e.target !== navbar_ml && e.target !== navbar__toggle ? navbar_ml.classList.remove('active') : false;
 
-var FunctionDate = new Date();
-var footer_wrap_copyright_block_text = d.querySelector('.footer-wrap_copyright-block_text');
-var dataText = '© MafiaRP все права защищены 2019-' + FunctionDate.getFullYear();
+window.onscroll = _ => window.scrollY >= 1 ? navbar.classList.add('active_scroll') : navbar.classList.remove('active_scroll');
 
-footer_wrap_copyright_block_text.innerHTML = dataText;
+const footer_wrap_copyright_block_text = document.querySelector('.footer-wrap_copyright-block_text');
+footer_wrap_copyright_block_text.textContent = `© MafiaRP все права защищены 2019-${new Date().getFullYear()}`;
