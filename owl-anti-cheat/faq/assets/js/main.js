@@ -1,27 +1,19 @@
-const d = document;
+const navbar__toggle = document.querySelector('.navbar__toggle'),
+    navbar_ml = document.querySelector('.navbar_ml'),
+    logo___ml = document.querySelector('.logo___ml'),
+    secondlogo = document.querySelector('.logo_hide_pc'),
+    button_hide_pc = document.querySelector('.button_hide_pc');
 
-/* massive buttons */
-var navbar__toggle = d.querySelector('.navbar__toggle');
-var navbar_ml = d.querySelector('.navbar_ml');
-var logo___ml = d.querySelector('.logo___ml');
-var secondlogo = d.querySelector('.logo_hide_pc');
-var button_hide_pc = d.querySelector('.button_hide_pc');
-
-navbar__toggle.addEventListener('click', function(){
+navbar__toggle.onclick = _ => {
+    document.body.style.overflow = 'hidden';
     navbar_ml.classList.add('active');
-    secondlogo.classList.add('activef');
-    button_hide_pc.classList.add('activef');
-    d.body.style.cssText = 'overflow: hidden;';
-});
+    [secondlogo, button_hide_pc].map(el => el.classList.add('activef'));
+};
 
-button_hide_pc.addEventListener('click', function(){
+button_hide_pc.onclick = _ => {
     navbar_ml.classList.remove('active');
-    navbar__toggle.removeAttribute('style');
-    d.body.removeAttribute('style');
-});
+    [navbar__toggle, document.body].map(el => el.removeAttribute('style'));
+};
 
-var DateFunc = new Date();
-var copyright__info = d.querySelector('.copyright__info');
-var text_data = 'Copyright © 2021-' + DateFunc.getFullYear() + ' by OWL. All rights reserved.';
-
-copyright__info.innerHTML = text_data;
+const copyright__info = document.querySelector('.copyright__info');
+copyright__info.textContent = `Copyright © 2021-${new Date().getFullYear()} by OWL. All rights reservedocument.`;
